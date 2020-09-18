@@ -19,6 +19,12 @@ export interface FunctionUnformField<T> extends BaseUnformField<T> {
 
 export type UnformField<T = any> = PathUnformField<T> | FunctionUnformField<T>;
 
+type ListenParams = {
+  fieldName: string;
+  event: string;
+  handler: Function;
+}
+
 export interface UnformErrors {
   [key: string]: string | undefined;
 }
@@ -52,6 +58,7 @@ export interface FormHandles {
   setErrors(errors: object): void;
   reset(data?: object): void;
   submitForm(): void;
+  listen(data: ListenParams): void;
 }
 
 export interface FormHelpers {

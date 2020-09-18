@@ -193,6 +193,9 @@ const Form: RefForwardingComponent<FormHandles, FormProps> = (
     submitForm() {
       handleSubmit();
     },
+    listen(data) {
+      this.getFieldRef(data.fieldName).addEventListener(data.event, data.handler);
+    },
   }));
 
   return (
